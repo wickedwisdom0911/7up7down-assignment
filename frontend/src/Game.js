@@ -16,7 +16,6 @@ const Game = () => {
       setPoints(prevPoints => prevPoints + result.winAmount);
     }
   }, [result]);
-  
 
   const handleRollDice = async () => {
     dispatch(setLoading(true));
@@ -25,7 +24,6 @@ const Game = () => {
         betAmount,
         betType
       });
-        console.log(response.data.winAmount)
       dispatch(setResult(response.data));
     } catch (error) {
       console.error('Error rolling dice:', error);
@@ -65,7 +63,7 @@ const Game = () => {
         <Typography variant="body1">{betAmount}</Typography>
         <Grid container spacing={2} alignItems="center" justifyContent="center" style={{ marginTop: '10px' }}>
           {allowedBetAmounts.map((amount) => (
-            <Grid item xs={4} key={amount}>
+            <Grid item xs={4} sm={4} md={4} lg={4} key={amount}>
               <Button
                 fullWidth
                 variant="contained"
@@ -80,7 +78,7 @@ const Game = () => {
       </Paper>
       <Paper elevation={3} style={{ padding: '20px', marginBottom: '20px' }}>
         <Grid container spacing={2} alignItems="center" justifyContent="center">
-          <Grid item xs={8}>
+          <Grid item xs={8} sm={8} md={8} lg={8}>
             <TextField
               select
               label="Bet Option"
@@ -96,7 +94,7 @@ const Game = () => {
               ))}
             </TextField>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={4} sm={4} md={4} lg={4}>
             <Button
               fullWidth
               variant="contained"
@@ -116,13 +114,13 @@ const Game = () => {
         <Paper elevation={3} style={{ padding: '20px', marginBottom: '20px', textAlign: 'center' }}>
           <Typography variant="h6">Result:</Typography>
           <Grid container spacing={2} alignItems="center" justifyContent="center">
-            <Grid item xs={12}>
+            <Grid item xs={12} sm={12} md={12} lg={12}>
               <Typography variant="body1" style={{ fontSize: '18px', fontWeight: 'bold' }}>{`Dice 1: ${result.dice1}`}</Typography>
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} sm={12} md={12} lg={12}>
               <Typography variant="body1" style={{ fontSize: '18px', fontWeight: 'bold' }}>{`Dice 2: ${result.dice2}`}</Typography>
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} sm={12} md={12} lg={12}>
               <Typography variant="body1" style={{ fontSize: '18px', fontWeight: 'bold' }}>{`Total: ${result.total}`}</Typography>
             </Grid>
           </Grid>
