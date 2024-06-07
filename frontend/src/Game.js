@@ -24,6 +24,8 @@ const Game = () => {
         betAmount,
         betType
       });
+
+      console.log(response)
       dispatch(setResult(response.data));
     } catch (error) {
       console.error('Error rolling dice:', error);
