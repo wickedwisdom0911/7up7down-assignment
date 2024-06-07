@@ -50,7 +50,7 @@ const Game = () => {
   ];
 
   return (
-    <Container style={{ padding: '10px', overflow: 'auto' }}>
+    <Container style={{ padding: '10px' }}>
       <Typography variant="h4" align="center" gutterBottom>
         7 UP 7 DOWN Game
       </Typography>
@@ -61,9 +61,9 @@ const Game = () => {
       <Paper elevation={3} style={{ padding: '20px', marginBottom: '20px' }}>
         <Typography variant="h6">Selected Bet Amount:</Typography>
         <Typography variant="body1">{betAmount}</Typography>
-        <Grid container spacing={2} justifyContent="center" style={{ marginTop: '10px' }}>
+        <Grid container spacing={2} justifyContent="center">
           {allowedBetAmounts.map((amount) => (
-            <Grid item xs={12} sm={4} key={amount}>
+            <Grid item key={amount}>
               <Button
                 fullWidth
                 variant="contained"
@@ -79,7 +79,7 @@ const Game = () => {
       </Paper>
       <Paper elevation={3} style={{ padding: '20px', marginBottom: '20px' }}>
         <Grid container spacing={2} justifyContent="center">
-          <Grid item xs={12} sm={8}>
+          <Grid item xs={12} sm={6}>
             <TextField
               select
               label="Bet Option"
@@ -95,14 +95,14 @@ const Game = () => {
               ))}
             </TextField>
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={6} style={{ display: 'flex', alignItems: 'center' }}>
             <Button
               fullWidth
               variant="contained"
               color="primary"
               onClick={handleRollDice}
               disabled={loading}
-              style={{ marginTop: '10px' }}
+              style={{ marginTop: '10px', padding: '10px' }}
             >
               {loading ? <CircularProgress size={24} /> : 'Roll Dice'}
             </Button>
@@ -112,27 +112,24 @@ const Game = () => {
           Winning/Losing Amount: {winningAmount !== null ? winningAmount : '-'}
         </Typography>
       </Paper>
-      <div style={{ maxHeight: '50vh', overflowY: 'auto' }}>
-        {result && (
-          <Paper elevation={3} style={{ padding: '20px', marginBottom: '20px', textAlign: 'center' }}>
-            <Typography variant="h6">Result:</Typography>
-            <Grid container spacing={2} justifyContent="center">
-              <Grid item xs={12} sm={12}>
-                <Typography variant="body1" style={{ fontSize: '18px', fontWeight: 'bold' }}>{`Dice 1: ${result.dice1}`}</Typography>
-              </Grid>
-              <Grid item xs={12} sm={12}>
-                <Typography variant="body1" style={{ fontSize: '18px', fontWeight: 'bold' }}>{`Dice 2: ${result.dice2}`}</Typography>
-              </Grid>
-              <Grid item xs={12} sm={12}>
-                <Typography variant="body1" style={{ fontSize: '18px', fontWeight: 'bold' }}>{`Total: ${result.total}`}</Typography>
-              </Grid>
+      {result && (
+        <Paper elevation={3} style={{ padding: '20px', marginBottom: '20px', textAlign: 'center' }}>
+          <Typography variant="h6">Result:</Typography>
+          <Grid container spacing={2} justifyContent="center">
+            <Grid item xs={12} sm={12}>
+              <Typography variant="body1" style={{ fontSize: '18px', fontWeight: 'bold' }}>{`Dice 1: ${result.dice1}`}</Typography>
             </Grid>
-          </Paper>
-        )}
-      </div>
-    </Container>)
+            <Grid item xs={12} sm={12}>
+              <Typography variant="body1" style={{ fontSize: '18px', fontWeight: 'bold' }}>{`Dice 2: ${result.dice2}`}</Typography>
+            </Grid>
+            <Grid item xs={12} sm={12}>
+              <Typography variant="body1" style={{ fontSize: '18px', fontWeight: 'bold' }}>{`Total: ${result.total}`}</Typography>
+            </Grid>
+          </Grid>
+        </Paper>
+      )}
+    </Container>
+  );
 }
 
-
-
-export default Game
+export default Game;
