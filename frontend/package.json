@@ -2,6 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://www.yourwebsitename.com",
   "dependencies": {
     "@material-ui/core": "^4.12.4",
     "@reduxjs/toolkit": "^2.2.5",
