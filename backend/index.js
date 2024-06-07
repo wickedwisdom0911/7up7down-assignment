@@ -6,13 +6,16 @@ const gameRoutes = require('./routes/game.routes.js');
 
 
 const app=express()
-app.use(cors());
+const corsOptions = {
+    origin: "http://localhost:3000" // frontend URI (ReactJS)
+}
 app.use(express.json());
+app.use(cors(corsOptions));app.use(express.json());
 
 app.use('/game', gameRoutes);
 const path = require("path");
 
-app.use(express.static(path.join(__dirname, "build"))); 
+
 
 app.listen(process.env.PORT || 3000, ()=>{
 
