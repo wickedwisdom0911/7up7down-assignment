@@ -9,9 +9,25 @@ const app=express()
 
 app.use(express.json());
 
-const corsOptions = {
-    origin:['https://sevenup7down-assignment-frontend.onrender.com',"http://localhost:3000"] // replace with your domain
+
+ allowedOrigins=['https://sevenup7down-assignment-frontend.onrender.com',"http://localhost:3000"]
+  
+
+  const corsOptions = {
+    origin: (origin, callback) => {
+      // Check if the incoming origin is in the allowedOrigins array
+      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    allowedHeaders: ['Content-Type', 'Authorization'],
   };
+  
+  app.use(cors(corsOptions));
+  app.options('*', cors(corsOptions));
   
   app.use(cors(corsOptions));
 
