@@ -10,7 +10,7 @@ const app=express()
 app.use(express.json());
 
 const corsOptions = {
-    origin:'https://sevenup7down-assignment-frontend.onrender.com' // replace with your domain
+    origin:['https://sevenup7down-assignment-frontend.onrender.com',"http://localhost:3000"] // replace with your domain
   };
   
   app.use(cors(corsOptions));
