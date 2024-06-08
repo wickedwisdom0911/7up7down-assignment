@@ -8,12 +8,9 @@ const gameRoutes = require('./routes/game.routes.js');
 const app=express()
 
 app.use(express.json());
+
 const corsOptions = {
-    origin: 'https://sevenup7down-assignment-frontend.onrender.com', // replace with your domain
-    methods: 'GET,HEAD,PUT,PATCH,POST',
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
-    optionsSuccessStatus: 204
+    origin:'https://sevenup7down-assignment-frontend.onrender.com' // replace with your domain
   };
   
   app.use(cors(corsOptions));
