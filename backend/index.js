@@ -15,8 +15,7 @@ allowedOrigins=['https://sevenup7down-assignment-frontend.onrender.com',"http://
 
 const corsOptions = {
     origin: (origin, callback) => {
-      // Allow requests with no origin, e.g., mobile apps, curl requests
-      if (!origin) return callback(null, true);
+      if (!origin) return callback(null, true); // Allow requests with no origin (like mobile apps, curl)
       if (allowedOrigins.indexOf(origin) === -1) {
         const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
         return callback(new Error(msg), false);
@@ -25,15 +24,17 @@ const corsOptions = {
     },
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     allowedHeaders: ['Content-Type', 'Authorization'],
-    optionsSuccessStatus: 200 // Some legacy browsers (IE11, various SmartTVs) choke on 204
+    preflightContinue: false,
+    optionsSuccessStatus: 204
   };
   
+  // Use CORS with the specified options
   app.use(cors(corsOptions));
+  app.use(express.json());
+  
+  // Handle preflight requests
   app.options('*', cors(corsOptions));
   
-  app.use(cors(corsOptions));
-
-app.use(express.json());
 
 app.use('/game', gameRoutes);
 const path = require("path");
