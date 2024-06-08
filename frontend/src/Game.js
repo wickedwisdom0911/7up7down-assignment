@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Container, Typography, Button, CircularProgress, Grid, TextField, MenuItem, Paper } from '@material-ui/core';
+import { Container, Typography, Button, CircularProgress, Grid, TextField, MenuItem, Paper } from '@mui/material';
 import { setBetAmount, setSelectedOption, setResult, setLoading } from './redux/gameReducer';
 import axios from 'axios';
 
@@ -25,7 +25,7 @@ const Game = () => {
         betType
       });
 
-      console.log(response)
+      console.log(response);
       dispatch(setResult(response.data));
     } catch (error) {
       console.error('Error rolling dice:', error);
@@ -132,6 +132,6 @@ const Game = () => {
       )}
     </Container>
   );
-}
+};
 
 export default Game;
