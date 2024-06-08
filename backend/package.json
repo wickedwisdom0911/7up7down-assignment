@@ -3,12 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-
   "proxy": "http://localhost:3000",
   "scripts": {
     "start": "index.js",
     "dev": "nodemon index.js"
-  
   },
   "keywords": [],
   "author": "",

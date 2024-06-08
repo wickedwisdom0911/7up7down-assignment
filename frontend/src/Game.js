@@ -23,6 +23,10 @@ const Game = () => {
       const response = await axios.post('https://sevenup7down-assignment-1.onrender.com', {
         betAmount,
         betType
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+        }
       });
 
       console.log(response);
