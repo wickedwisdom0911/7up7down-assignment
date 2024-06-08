@@ -20,7 +20,7 @@ const Game = () => {
   const handleRollDice = async () => {
     dispatch(setLoading(true));
     try {
-      const response = await axios.post('http://localhost:3002/game/roll-dice', {
+      const response = await axios.post('https://sevenup7down-assignment-1.onrender.com', {
         betAmount,
         betType
       });
