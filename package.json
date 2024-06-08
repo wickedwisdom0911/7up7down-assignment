@@ -9,7 +9,7 @@
     "install-client": "cd frontend && npm install",
     "build-client": "cd frontend && npm run build",
     "start-client": "cd frontend && npm run start",
-    "set-legacy"  :  "cd frontend && npm config set legacy-peer-deps true && npm install "
+    "set-legacy"  :  "cd frontend && npm install --legacy-peer-deps "
   },
   "keywords": [],
   "author": "",
